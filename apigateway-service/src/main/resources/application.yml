@@ -32,7 +32,7 @@ spring:
           filters:
             - RemoveRequestHeader=Cookie
             # 첫번째를 두번째로 바꾸겠다
-            - RewritePath=/user-service/(?<segment>.*), \%/{segment}
+            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
@@ -41,7 +41,7 @@ spring:
           filters:
             - RemoveRequestHeader=Cookie
             # 첫번째를 두번째로 바꾸겠다
-            - RewritePath=/user-service/(?<segment>.*), \%/{segment}
+            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
@@ -50,7 +50,7 @@ spring:
           filters:
             - RemoveRequestHeader=Cookie
             # 첫번째를 두번째로 바꾸겠다
-            - RewritePath=/user-service/(?<segment>.*), \%/{segment}
+            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
         - id: catalog-service
           uri: lb://CATALOG-SERVICE
           predicates:
