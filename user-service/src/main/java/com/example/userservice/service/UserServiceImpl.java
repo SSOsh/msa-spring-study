@@ -22,6 +22,7 @@ public class UserServiceImpl implements UserService{
     UserRepository userRepository;
     BCryptPasswordEncoder passwordEncoder;
 
+    //
     @Autowired
     public UserServiceImpl(UserRepository userRepository, BCryptPasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
@@ -67,7 +68,19 @@ public class UserServiceImpl implements UserService{
         return userRepository.findAll();
     }
 
+    @Override
+    public UserDto getUserDetailsByEmail(String email) {
+        UserEntity userEntity = userRepository.findByEmail(email);
+        UserDto userDto = new ModelMapper().map(userEntity, UserDto.class);
+
+        if(userEntity == null)
+            throw new UsernameNotFoundException(email);
+
+        return userDto;
+    }
+
     //UserDetailsService 재정의
+    //사용자가 username적으면 username확인하는 메소드
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         UserEntity userEntity = userRepository.findByEmail(username);

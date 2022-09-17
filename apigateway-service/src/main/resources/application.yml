@@ -51,6 +51,8 @@ spring:
             - RemoveRequestHeader=Cookie
             # 첫번째를 두번째로 바꾸겠다
             - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+            # 여기 uri로 들어간 친구들의 header에 Authorization이 있는지 확인한다.
+            - AuthorizationHeaderFilter
         - id: catalog-service
           uri: lb://CATALOG-SERVICE
           predicates:
@@ -80,3 +82,6 @@ spring:
                 baseMessage: Hi, there.
                 preLogger: true
                 postLogger: true
+token:
+  # 어떤 키를 넣을지
+  secret: user_token
