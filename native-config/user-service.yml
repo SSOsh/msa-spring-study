@@ -1,0 +1,17 @@
+token:
+  expiration_time: 86400000
+  # secret: '{cipher}AQBXIq0dReW/i+Ye5p8A/c+Up4T57prkUUtS7+TrLQV0kSjzn96igTs62yreJBftPNKJQuTXf+It1R4yOpt4Kt5M1hAUWfND8t61N5kXjmzGT425dRzgaQ6G5MUgRtWBkfxW2//2rJsO6VU77YXHDH5FQSOgG8LiLp7XhsCThe3CSJXoLoXXVDOXeknP/JeiW1CSyOo/gmnEjussTbOGpIJQ1jdswxVcMDnmN+XEWKOC2Gpdw8aslyhA1YzMhlY8UaDht+PnFJOmT9hJ+7b2CoffJe4/y28AWWOIR+BDACelrAMiHv7wHaFF5KVFIVthphiSdzcGYL3UPQeVaLxVR4FbWFITBIWmpeWgEEFTyTY45Jt1uISev+2Coih7z4vN8JdJ9r8DKOPXF0uz4E+9w+hI'
+  secret: native_application
+
+gateway:
+  ip: 192.168.0.26
+
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: '{cipher}AQC17Km9o1dELhLcknF9xfDUXweTwLyZNLIrQP4DdYKIb2iJHPugNy2mN8AmMwIBe1JFxBgB9YTT6AEpDUikxWApBM+t9R48bMF/41K2wu25zzaN+j2j2qljVzwMiYRaBcNcvSh7rT/E6AIOhCUWMZu7g7u+QgyXeEn3aDqvh4+zQwHPhuppqfKbEWlGLuJj0+Sq7G6TmAPulZo0sL2p4PRsYuajn4ESeW4+FmQo59rKS0fGDzlfIb6+wvn1Zb+UyZHHLirO42tzC2gPGcO+EbV56r5TJMXGmXqZXWUc57A3MR6Z03JXuLQHNRN2+FimAU6u71lmndd/yM4NkF66t2YDzpr2KtR3Mk4hJrZSrAUEHX49S11Tiayu5DO03KVKFAQ='
+
+order_service:
+  url: http://127.0.0.1:8000/order-service/%s/orders

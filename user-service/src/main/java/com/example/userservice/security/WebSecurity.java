@@ -29,10 +29,10 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         //예제에서 모든 거 다 허락
         //http.authorizeRequests().antMatchers("/users/**").permitAll();
         http.authorizeRequests().antMatchers("/actuator/**").permitAll();
-        http.authorizeRequests().antMatchers("/**")
-                .hasIpAddress("192.168.0.26") //ip 변경
-                .and()
-                .addFilter(getAuthenticationFilter());
+        http.authorizeRequests().antMatchers("/**").permitAll();
+//                .hasIpAddress("192.168.0.4") //ip 변경
+//                .and()
+//                .addFilter(getAuthenticationFilter());
 
         //IP같고 권한 처리가 다 통과된 친구만 넣겠다.
         http.headers().frameOptions().disable();
